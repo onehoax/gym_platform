@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+This webapp is a platform to deliver instructional content on physical training
+and nutrition; it uses vue.js + materialize for the front end and node.js + firebase
+for the back end.

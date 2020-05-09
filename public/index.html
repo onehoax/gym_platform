@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Materialize CSS CDN -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    
+    <title>Movimiento Alpha</title>
   </head>
   <body>
     <noscript>
@@ -13,5 +21,34 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <!-- Fontawsome kit -->
+    <script src="https://kit.fontawesome.com/ab848f62eb.js"></script>
+
+    <!-- Must include jquery before materialize -->
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Materialize JS CDN -->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <!-- jquery script for animating all components that need animnation -->
+    <script>
+        $(document).ready(function () {
+            // Open the sidenav on the right
+            $('.sidenav').sidenav({ edge: 'right' });
+            // Allow the tabs functionality
+            $('.tabs').tabs();
+            // Allow the scrollspy functionality
+            $('.scrollspy').scrollSpy();
+            // Open pics to fullscreen when clicked
+            $('.materialboxed').materialbox();
+            // Allow parallax functionality
+            $('.parallax').parallax();
+            // Allow modal functionality
+            $('.modal').modal();
+        });
+    </script>
   </body>
 </html>

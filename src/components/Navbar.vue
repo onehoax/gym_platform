@@ -14,7 +14,7 @@
 
                 <!-- Sidenav when screen size decreases -->
                 <links 
-                    classes="sidenav grey lighten-2" id="mobile-menu"
+                    classes="sidenav grey lighten-2" id="mobile-menu" reference="sidenav" 
                     :options="options">
                 </links>
 
@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import links from './NavLinks'
 import authModal from './AuthModal'
+import links from './NavLinks'
 
 export default {
     components: {

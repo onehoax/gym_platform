@@ -1,5 +1,5 @@
 <template>
-    <ul :class="classes">
+    <ul :class="classes" :ref="reference">
         <li v-for="option in options" :key="option">
             <!-- If the link we want is either "Register", "Login" or
             "Logout" then we want to link to their corresponding modals -->
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import M from 'materialize-css'
+
 export default {
     props: {
         classes: {
@@ -40,7 +42,16 @@ export default {
         },
         options: {
             type: Array[String]
+        },
+        // to assign to this.ref if the links are meant to be a side nav
+        // this is so we can use this$refs to initialize the sidenav
+        reference: {
+            type: String
         }
+    },
+    mounted() {
+        // initialize the sidenav functionality with materialize
+        M.Sidenav.init(this.$refs.sidenav, { edge: 'right' });
     }
 }
 </script>

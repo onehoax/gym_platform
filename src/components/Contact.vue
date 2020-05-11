@@ -1,5 +1,5 @@
 <template>
-    <section class="container section scrollspy" id="Contactanos">
+    <section class="container section scrollspy" id="Contactanos" ref="scroll">
         <div class="row">
             <div class="col s12 l5">
                 <h2 class="indigo-text text-darken-4">Contactanos</h2>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import M from 'materialize-css'
 import input from './Input'
 import textArea from './TextArea'
 import button from './Button'
@@ -39,6 +40,10 @@ export default {
         'vue-input': input,
         'vue-text-area': textArea,
         'vue-button': button
+    },
+    mounted() {
+        // initialize scroll functionality with materialize
+        M.ScrollSpy.init(this.$refs.scroll);
     }
 }
 </script>

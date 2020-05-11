@@ -1,6 +1,6 @@
 <template>
     <div class="col s12 l6 offset-l2">
-        <ul class="tabs">
+        <ul class="tabs" ref="tabs">
             <li class="tab col s6">
                 <a href="#training" class="indigo-text text-darken-4">Entrenamiento Funcional</a>
             </li>
@@ -20,5 +20,12 @@
 </template>
 
 <script>
-export default { }
+import M from 'materialize-css'
+
+export default { 
+    mounted() {
+        // initialize tabs functionality with materliaze
+        M.Tabs.init(this.$refs.tabs);
+    }
+}
 </script>

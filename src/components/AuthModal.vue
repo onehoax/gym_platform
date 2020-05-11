@@ -2,7 +2,7 @@
     <div class="modal" :id="id" ref="modal">
         <div class="modal-content">
             <h4 class="indigo-text text-darken-3 center">{{ name }}</h4>
-            <form action="" :id="'signup-form-' + name" ref="formRef" @submit.prevent="print()">
+            <form action="" :id="'signup-form-' + name" ref="formRef" @submit.prevent="signup()">
                 <div class="input-field">
                     <input type="email" :id="'signup-email-' + name" required ref="emailRef">
                     <label for="signup-email">Tu Email</label>
@@ -33,13 +33,14 @@ export default {
         },
     },
     methods: {
-        print: function() {
+        signup: function() {
             // access the value elment directly by including a ref in the element
             const email = this.$refs.emailRef.value
             // access the value of the input through the parent form
             const password = this.$refs.formRef[this.passwordId].value
             console.log(email, password)
 
+            // create a new user in firebase auth; automatically logs the user in
             auth.createUserWithEmailAndPassword(email, password)
             .then(cred => {
                 console.log(cred.user)
@@ -47,6 +48,11 @@ export default {
             .catch(err => {
                 console.log(err)
             })
+
+            // close the modal when the user clicks the submit button
+            M.Modal.getInstance(this.$refs.modal).close();
+            // reset the form to clear out its fields after successful submission
+            this.$refs.formRef.reset();
         }
     },
     data() {
@@ -58,9 +64,9 @@ export default {
     mounted() {
         this.emailId = 'signup-email-' + this.name
         this.passwordId = 'signup-password-' + this.name
-        console.log(this.$refs.formRef)
-        console.log(this.$refs.emailRef)
-        console.log(process.env.VUE_APP_FIREBASE_API_KEY)
+        // console.log(this.$refs.formRef)
+        // console.log(this.$refs.emailRef)
+        // console.log(process.env.VUE_APP_FIREBASE_API_KEY)
 
         // initialize the modal functionality with materialize
         M.Modal.init(this.$refs.modal);

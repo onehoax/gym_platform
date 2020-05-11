@@ -1,5 +1,5 @@
 <template>
-    <section class="container section scrollspy" id="Planes">
+    <section class="container section scrollspy" id="Planes" ref="scroll">
         <h2 class="center-align"><a class="indigo-text text-darken-4" href="/plans">Planes</a></h2>
         <hr>
         <plan 
@@ -22,11 +22,16 @@
 </template>
 
 <script>
+import M from 'materialize-css'
 import plan from './Plan'
 
 export default {
     components: {
         'plan': plan
+    },
+    mounted() {
+        // initialize scroll functionality with materialize
+        M.ScrollSpy.init(this.$refs.scroll);
     }
 }
 </script>

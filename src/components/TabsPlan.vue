@@ -1,6 +1,6 @@
 <template>
     <div class="col s12 l12">
-        <ul class="tabs">
+        <ul class="tabs" ref="tabs">
             <li class="tab col s6">
                 <a :href="'#' + videosId" class="indigo-text text-darken-4">Videos</a>
             </li>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import M from 'materialize-css'
 import vueVideo from './Video'
 
 export default {
@@ -59,11 +60,9 @@ export default {
             return 'meals' + this.id
         }
     },
-    created() {
-        // console.log(this.id)
-        // console.log(this.videosId)
-        // console.log(this.mealsId)
-        // console.log(this.day)
+    mounted() {
+        // initialize tabs functionality with materliaze
+        M.Tabs.init(this.$refs.tabs);
     }
  }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col s12 l8">
-            <video controls class="responsive-video materialboxed">
+            <video controls class="responsive-video materialboxed" ref="materialbox">
                 <source :src="require('../assets/' + videosrc)" type="video/mp4">
             </video>
         </div>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import M from 'materialize-css'
+
 export default {
     props: {
         videosrc: {
@@ -24,6 +26,10 @@ export default {
         description: {
             type: String
         }
+    },
+    mounted() {
+        // initiate materialbox func. from materialize
+        M.Materialbox.init(this.$refs.materialbox);
     }
 }
 </script>

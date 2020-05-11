@@ -38,7 +38,7 @@
             return {
                 options: ['Registrate', 'Log In', 'Servicios', 'Planes', 'Contactanos']
             }
-        }
+        },
     }
 </script>
 

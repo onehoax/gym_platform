@@ -19,7 +19,9 @@
             </a>
             <a
                 v-else-if="option == 'Log Out'"
-                href="#">
+                href="#"
+                ref="logout"
+                @click.prevent="logout()">
                 {{ option }} 
             </a>
             <a v-else :href="'#' + option">{{ option }}</a>
@@ -34,6 +36,7 @@
 
 <script>
 import M from 'materialize-css'
+import { auth } from '../firebase/auth'
 
 export default {
     props: {
@@ -47,6 +50,15 @@ export default {
         // this is so we can use this$refs to initialize the sidenav
         reference: {
             type: String
+        }
+    },
+    methods: {
+        logout: function() {
+            auth.signOut()
+            .then(() => {
+                console.log('user signed out');
+                this.$router.push('/');
+            })
         }
     },
     mounted() {

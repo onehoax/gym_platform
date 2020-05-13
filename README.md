@@ -23,9 +23,9 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-This webapp (Single-Page-App and fulle responsive) is a platform to deliver instructional content 
+This webapp (Single-Page-App and fully responsive) is a platform to deliver instructional content 
 on physical training and nutrition; it uses vue.js + materialize for the front end and node.js + firebase
-for the back end.
+for the back end (authorization and deployment).
 
 The home page contains the general info about the services provided as well as options for
 registering and logging in; the "Plans" section (its title) is a link to a page containing the plans

@@ -20,7 +20,6 @@
             <a
                 v-else-if="option == 'Log Out'"
                 href="#"
-                ref="logout"
                 @click.prevent="logout()">
                 {{ option }} 
             </a>

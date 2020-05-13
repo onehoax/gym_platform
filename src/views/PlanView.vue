@@ -18,6 +18,7 @@ import navBar from '../components/Navbar'
 import footer from '../components/Footer'
 import description from '../components/PlanDescription'
 import day from '../components/Day'
+import { auth } from '../firebase/auth'
 
 export default {
     components: {
@@ -30,6 +31,21 @@ export default {
         return {
             options: ['Log Out']
         }
+    },
+    mounted() {
+        // listen for auth status changes; if user is signed in
+        // then they have access to this page, otherwise redirect to home
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                console.log('user logged in: ', user)
+            } else {
+                console.log('user logged out')
+                this.$router.push('/')
+                .catch(err => {
+                    console.log(err)
+                })
+            }
+        })
     }
 }
 </script>

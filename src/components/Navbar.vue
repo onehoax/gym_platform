@@ -2,7 +2,8 @@
     <header>
         <nav class="nav-wrapper transparent">
             <div class="container">
-                <a href="/" class="brand-logo">Movimiento Alpha</a>
+                <a v-if="user" href="/" class="brand-logo">Movimiento Alpha: {{ user }}</a>
+                <a v-else href="/" class="brand-logo">Movimiento Alpha</a>
                 <a href="" class="sidenav-trigger right" data-target="mobile-menu">
                     <i class="material-icons">menu</i>
                 </a>
@@ -29,6 +30,7 @@
 <script>
 import authModal from './AuthModal'
 import links from './NavLinks'
+import { auth } from '../firebase/auth'
 
 export default {
     components: {
@@ -36,13 +38,26 @@ export default {
         'auth': authModal
     },
     props: {
-        user: {
-            type: String
-        },
         options: {
             type: Array[String]
         }
     },
+    data() {
+        return {
+            user: ''
+        }
+    },
+    mounted() {
+        // listen for auth status changes; if user is signed in
+        // then they have access to this page, otherwise redirect to home
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                this.user = user.email
+            } else {
+                this.user = ''
+            }
+        })
+    }
 }
 </script>
 

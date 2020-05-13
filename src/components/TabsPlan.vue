@@ -12,12 +12,12 @@
             <!-- <p class="flow-text indigo-text text-darken-4">ENTRENAMIENTO FUNCIONAL</p> -->
             <!-- Display videos corresponding to this.day -->
             <vue-video 
-                videosrc="all.mp4" 
+                videosrc="vid.mp4" 
                 title="Pecho" 
                 description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere voluptatum autem nam odit pariatur nesciunt! Porro, doloremque voluptas eveniet magni consectetur ut voluptatem inventore totam eum, temporibus ad deleniti?">
             </vue-video>
             <vue-video 
-                videosrc="all.mp4" 
+                videosrc="vid.mp4" 
                 title="Espalda" 
                 description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere voluptatum autem nam odit pariatur nesciunt! Porro, doloremque voluptas eveniet magni consectetur ut voluptatem inventore totam eum, temporibus ad deleniti?">
             </vue-video>
